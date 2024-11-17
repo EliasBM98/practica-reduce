@@ -1,0 +1,7 @@
+.Pendiente{
+    background-color: brown;
+}
+
+.Pendiente:active{
+    background-color: blue;
+}
