@@ -16,7 +16,8 @@ export const Todo = () => {
             id: Date.now(),
             todo: 'Titulo de la tarea',
             description: 'descripción de la tarea',
-            done: true,
+            done: false,
+            date: new Date(),
             tarea: ev.target.tarea.value
         }
     
@@ -37,11 +38,10 @@ export const Todo = () => {
     dispatch(action)
     }
 
-    const toggleTodo = (id, done) => {
+    const toggleTodo = (id) => {
         const action={
             type: '[TODO] toggle todo',
-            payload: {  id, 
-                        done}
+            payload: id
         }
     dispatch(action)
     }
@@ -60,7 +60,7 @@ export const Todo = () => {
                 {
                     todos.map(todo => (
                     <li key={todo.id}>{todo.tarea} 
-                        - <button onClick={() => toggleTodo(todo.id, todo.done)} className='Pendiente'>{todo.done ? 'Pendiente' : 'Completado'}</button>
+                        - <button onClick={() => toggleTodo(todo.id)} className='Pendiente'>{todo.id ? 'Pendiente' : 'Completado'}</button>
 
                         - <button onClick={() => onDeleteTodo(todo.id)}>Eliminar</button> 
                     </li>

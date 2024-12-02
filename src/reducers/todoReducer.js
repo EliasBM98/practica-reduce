@@ -22,3 +22,11 @@ export const todoReducer = (state=[], action={}) => {
     }
 
 }
+
+/*case '[TODO] toggle todo':
+    return (
+        state.map(todo => {
+            if(todo.id === action.payload) return {...todo, done: !todo.done}
+            return todo
+        })
+    )*/
